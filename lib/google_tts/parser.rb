@@ -11,8 +11,12 @@ module GoogleTts
       @tokenizer = TactfulTokenizer::Model.new
     end
 
-    def chop(text = "")
-      tokens = @tokenizer.tokenize_text text
+    def paragraphs(text = "")
+      @tokenizer.tokenize_text text
+    end
+
+    def sentences(text = "")
+      tokens = paragraphs text
       tokens.flat_map do |token| 
         token = URI.escape(token)
         next_partial(token) {
