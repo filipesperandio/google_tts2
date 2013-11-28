@@ -1,10 +1,12 @@
 # encoding: UTF-8
 
 require 'spec_helper'
+require 'uri'
 
 describe GoogleTts::Parser do
   before(:all) do
-    @txt = File.open("spec/fixtures/big_text.txt").read
+    txt = File.open("spec/fixtures/big_text.txt").read
+    @txt = txt.gsub(/[ ]+/, " ")
   end
 
   it "respsect this interface" do
@@ -28,16 +30,26 @@ describe GoogleTts::Parser do
   it 'should split sentences no bigger than 100 chars each' do
     result = subject.sentences @txt
     result.each do |r|
-      p r if r.length > 100
       expect(r.length ).to be <= 100
     end
   end
 
-  it 'should split big sentence in commas os minor pieces' do
+  it 'should split sentences and keep all the content' do
+    result = subject.sentences @txt
+    original_escaped = URI.escape(@txt)
+    result_escaped = result.join(" ")
+    expect(rep(result_escaped)).to eq(rep(original_escaped))
+  end
+
+  it 'should split big sentence in commas or minor pieces' do
     text = "O projeto é de autoria do arquiteto João Batista Giovenale, então professor da Academia de Belas Artes - São Lucas - de Roma, e membro da Comissão de Arte Sacra da Basílica de São Pedro."
     result = subject.sentences text
-    expect(result.length).to be > text.count(',')
+    expect(result.length).to be > (text.count(',') + 1)
+    expect(result.length).to be < 10
   end
 
 end
 
+def rep(t)
+  t.gsub("%20"," ").gsub(/[ ]+/, " ").gsub("%0A", "")
+end
