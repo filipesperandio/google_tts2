@@ -10,7 +10,7 @@ Just install the bundles:
 
 To run the tests
 
-    guard
+    bundle exec guard
     
 or
 
