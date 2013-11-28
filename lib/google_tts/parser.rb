@@ -2,10 +2,10 @@ require "tactful_tokenizer"
 require "uri"
 
 module GoogleTts
-  MAX_LENGTH = 100
-  SPACE = URI.escape(" ")
 
   class Parser
+    MAX_LENGTH = 100
+    SPACE = URI.escape(" ")
 
     def initialize 
       @tokenizer = TactfulTokenizer::Model.new
