@@ -1,4 +1,3 @@
-require "tactful_tokenizer"
 require "uri"
 
 module GoogleTts
@@ -7,12 +6,11 @@ module GoogleTts
     MAX_LENGTH = 100
     SPACE = URI.escape(" ")
 
-    def initialize 
-      @tokenizer = TactfulTokenizer::Model.new
-    end
-
     def paragraphs(text = "")
-      @tokenizer.tokenize_text(text)
+      paragraphs = text.split(/(?<=[\.\?\!])/)
+      paragraphs.map do |p|
+        p.strip
+      end
     end
 
     def sentences(text = "")

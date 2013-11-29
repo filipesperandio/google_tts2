@@ -1,5 +1,4 @@
 # encoding: UTF-8
-
 require 'spec_helper'
 require 'uri'
 
@@ -36,9 +35,10 @@ describe GoogleTts::Parser do
 
   it 'should split sentences and keep all the content' do
     result = subject.sentences @txt
-    original_escaped = URI.escape(@txt)
-    result_escaped = result.join(" ")
-    expect(rep(result_escaped)).to eq(rep(original_escaped))
+    original_escaped = readable(URI.escape(@txt))
+    result_escaped = readable(result.join(" "))
+
+    expect(result_escaped).to eq(original_escaped)
   end
 
   it 'should split big sentence in commas or minor pieces' do
@@ -50,6 +50,6 @@ describe GoogleTts::Parser do
 
 end
 
-def rep(t)
-  t.gsub("%20"," ").gsub(/[ ]+/, " ").gsub("%0A", "")
+def readable(t)
+  t.gsub("%20"," ").gsub(/[ ]+/, " ").gsub("%0A", "").strip
 end

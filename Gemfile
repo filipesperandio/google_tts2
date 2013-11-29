@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'tactful_tokenizer'
 
 group :development do
   gem 'rspec'
