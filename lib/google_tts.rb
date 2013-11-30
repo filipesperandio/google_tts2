@@ -1,12 +1,13 @@
-lib_folder = File.expand_path(File.join(File.dirname(__FILE__), 'lib'))
-Dir["#{lib_folder}/**/*.rb"].each do |file|
-  require file
-end
+require 'google_tts/connector'
+require 'google_tts/query_builder'
+require 'google_tts/parser'
+require 'google_tts/mp3writer'
 
 module GoogleTts
   VERSION = "0.0.2"
 
   class Client
+    include GoogleTts
 
     def initialize(connector = Connector.new, parser = Parser.new,
       query_builder = QueryBuilder.new, mp3writer = Mp3Writer.new)
