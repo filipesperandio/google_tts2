@@ -9,9 +9,6 @@ complete refactoring to support large texts.
     google_tts.save "FileName" "Texto em Portugês"
 
 
-#TODO
-* gemspec
-
 #Development
 
 Just install the bundles:
