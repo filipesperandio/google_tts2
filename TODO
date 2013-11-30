@@ -1,2 +1,0 @@
-- Create the tts client
-  'http://translate.google.com/translate_tts?ie=UTF-8&tl=' + lang + '&q=' + slice + '&textlen=' + slice.length + '&idx=' + i + '&total=' + slices.length

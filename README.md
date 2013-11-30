@@ -1,6 +1,13 @@
+#Install on Gemfile
+    gem 'google_tts2', '0.0.2', :git  => "https://github.com/filipesperandio/google_tts2.git"
 #Usage
-    comming soon
+    require 'google_tts'
+    google_tts = GoogleTts::Client.new
+    google_tts.save "FileName" "Texto em Portugês"
 
+#TODO
+* Builder for any language
+* gemspec
 
 #Development
 
