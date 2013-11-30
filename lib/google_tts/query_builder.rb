@@ -2,7 +2,7 @@ module GoogleTts
 
   class QueryBuilder
 
-    def initialize(lang = :en)
+    def initialize(lang = :pt)
       @lang = lang
     end
 
