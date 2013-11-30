@@ -48,6 +48,11 @@ describe GoogleTts::Parser do
     expect(result.length).to be < 10
   end
 
+  it 'should keep whole paragraph is less then 100 chars' do
+    result = subject.sentences 'Ola. tudo bem?' 
+    expect(result.length).to eq(1)
+  end
+
 end
 
 def readable(t)

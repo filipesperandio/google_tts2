@@ -14,9 +14,11 @@ module GoogleTts
     end
 
     def sentences(text = "")
+      text = URI.escape(text)
+      return [text] if text.length < MAX_LENGTH
+
       tokens = paragraphs(remove_extra_spaces(text))
       tokens.flat_map do |token| 
-        token = URI.escape(token)
         next_partial(token) {
           comma_setences = token.split(',').flat_map do |subtoken|
             subtoken = remove_extra_spaces("#{subtoken},")
