@@ -21,12 +21,12 @@ describe GoogleTts::Connector do
 
     it 'should connect to google translate' do
       http.should_receive(:get).exactly(2).times.and_return(response)
-      subject.get '/123', '/abc'
+      subject.get_contents '/123', '/abc'
     end
 
     it 'should return an array of response bodies' do
       http.should_receive(:get).exactly(3).times.and_return(response)
-      result = subject.get '/123', '/abc', '/xyz'
+      result = subject.get_contents '/123', '/abc', '/xyz'
       expect(result).to eq([ response.body, response.body, response.body ])
     end
 
@@ -34,14 +34,14 @@ describe GoogleTts::Connector do
       response.should_receive(:code).and_return("400")
       http.should_receive(:get).and_return(response)
       expect {
-        subject.get '/123'
+        subject.get_contents '/123'
       }.to raise_error
     end
 
     it 'fails on a bad connection' do
       http.should_receive(:get).and_raise("exception")
       expect {
-        subject.get '/123'
+        subject.get_contents '/123'
       }.to raise_error
     end
 

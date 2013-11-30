@@ -8,13 +8,13 @@ module GoogleTts
       @connection = http_connection
     end
 
-    def get(*paths)
+    def get_contents(*paths)
       begin
         http = @connection.start('translate.google.com') 
 
         result = paths.map do |path|
           response = http.get path
-          raise Error if response.code != "200"
+          raise_error(response) if response.code != "200"
           response.body
         end
 
@@ -24,6 +24,10 @@ module GoogleTts
         http.finish
       end
 
+    end
+
+    def raise_error(response)
+      raise "Error: response code #{response.code}" 
     end
 
   end
