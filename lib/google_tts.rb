@@ -9,8 +9,10 @@ module GoogleTts
   class Client
     include GoogleTts
 
-    def initialize(connector = Connector.new, parser = Parser.new,
-      query_builder = QueryBuilder.new, mp3writer = Mp3Writer.new)
+    def initialize(connector = Connector.new,
+                   query_builder = QueryBuilder.new,
+                   mp3writer = Mp3Writer.new,
+                   parser = Parser.new)
       @connector = connector
       @parser = parser
       @query_builder = query_builder
@@ -21,9 +23,17 @@ module GoogleTts
       sentences = @parser.sentences text
       queries = @query_builder.generate_from *sentences
       contents = @connector.get_contents *queries
-
       @mp3writer.save name, *contents
     end
 
   end
+
+  def self.instantiate(params = {})
+    proxy = params[:proxy]
+    connection = proxy ? Net::HTTP::Proxy(proxy[:host], proxy[:port]) : Net::HTTP
+    lang = params[:lang] || :en
+    output = params[:output] || "out"
+    Client.new(Connector.new(connection), QueryBuilder.new(lang), Mp3Writer.new(output))
+  end
+
 end

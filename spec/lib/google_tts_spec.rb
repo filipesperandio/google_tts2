@@ -1,16 +1,33 @@
 # encoding: UTF-8
 require 'spec_helper'
 
-describe GoogleTts::Client do
+describe GoogleTts do
 
-  it 'save a mp3' do
-    subject.save "file1", "Olá, tudo bem com você?"
-    expect(File.exists?("tmp/mp3/file1.mp3")).to be_true
+  context GoogleTts::Client do
+    DIR = "out"
+
+    subject do
+      GoogleTts.instantiate({ :output => DIR, :lang => :pt })
+    end
+
+    it 'save a mp3' do
+      subject.save "file1", "Olá, tudo bem com você?"
+      expect(File.exists?("out/file1.mp3")).to be_true
+    end
+
+    after do
+      FileUtils.rm_r "out"
+    end
+
   end
 
-  after do
-    FileUtils.rm_r "tmp/mp3"
+
+  context '#instantiate' do
+
+    it 'should fall back to defaults' do
+      expect(GoogleTts.instantiate).to_not be_nil
+    end
+
   end
 
 end
-
