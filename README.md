@@ -1,3 +1,6 @@
+Inspired on another gem - https://github.com/bloomrain/google_tts - this library is a
+complete refactoring to support large texts.
+
 #Install on Gemfile
     gem 'google_tts2', '0.0.2', :git  => "https://github.com/filipesperandio/google_tts2.git"
 #Usage
