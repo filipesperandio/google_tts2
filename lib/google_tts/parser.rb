@@ -42,7 +42,17 @@ module GoogleTts
       bad_size?(txt) ? partials.call : txt
     end
 
+    def splitInHalf(sentence, separator)
+      firstHalf = sentence[0..(sentence.length/2)]
+      firstHalf = firstHalf[0..(firstHalf.rindex(separator)-1)]
+      secondHalf = sentence[(firstHalf.length)..-1]
+      [firstHalf, secondHalf]
+    end
+
     def accumulate(sentence, separator, &next_step)
+      splitInTwo = splitInHalf(sentence, separator)
+      return splitInTwo if splitInTwo[0].length <= 100 and splitInTwo[1].length <= 100
+
       partial = []
       tmp = ''
       sentence.split(separator).each do |a|

@@ -4,7 +4,7 @@ require 'google_tts/parser'
 require 'google_tts/mp3writer'
 
 module GoogleTts
-  VERSION = "0.0.2"
+  VERSION = "0.0.3"
 
   class Client
     include GoogleTts

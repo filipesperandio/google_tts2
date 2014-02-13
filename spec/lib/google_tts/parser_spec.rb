@@ -41,6 +41,14 @@ describe GoogleTts::Parser do
     expect(result_escaped).to eq(original_escaped)
   end
 
+  it 'should split big sentence in commas but try to keep pieces as big as possible' do
+    text = 'O projeto é de autoria do arquiteto João Batista Giovenale, então professor da Academia de Belas Artes - São Lucas - de Roma, e membro da Comissão de Arte Sacra da Basílica de São Pedro.'
+    result = subject.sentences text
+    result.each do |txt|
+      txt.length.should be > 40
+    end
+  end
+
   it 'should split big sentence in commas or minor pieces' do
     text = "O projeto é de autoria do arquiteto João Batista Giovenale, então professor da Academia de Belas Artes - São Lucas - de Roma, e membro da Comissão de Arte Sacra da Basílica de São Pedro."
     result = subject.sentences text
@@ -52,7 +60,6 @@ describe GoogleTts::Parser do
     result = subject.sentences 'Ola. tudo bem?' 
     expect(result.length).to eq(1)
   end
-
 end
 
 def readable(t)
