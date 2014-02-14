@@ -5,7 +5,7 @@ require 'google_tts/mp3writer'
 require 'google_tts/proxy_fetcher'
 
 module GoogleTts
-  VERSION = "0.0.4"
+  VERSION = "0.0.5"
 
   class Client
     include GoogleTts
@@ -35,6 +35,11 @@ module GoogleTts
     lang = params[:lang] || :en
     output = params[:output] || "out"
     Client.new(Connector.new(connection), QueryBuilder.new(lang), Mp3Writer.new(output))
+  end
+
+  def self.with_proxy(params = {})
+    params[:proxy] = ProxyFetcher.random_proxy
+    instantiate params
   end
 
 end
