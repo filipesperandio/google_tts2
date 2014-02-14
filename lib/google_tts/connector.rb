@@ -27,7 +27,7 @@ module GoogleTts
     end
 
     def raise_error(response)
-      raise "Error: response code #{response.code}" 
+      raise "Error: response code #{response.code} #{response.body}"
     end
 
   end
