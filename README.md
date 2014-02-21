@@ -29,6 +29,14 @@ or
     google_tts.save("FileName", "Texto em Portugês")
     # => "out/FileName.mp3" 
 
+##Auto-proxy selection
+Use with caution, the selection is totally ramdom base on lists of public proxies, they may have very high latency and result on time out.
+The suggestion is to use when you start receiving 302 responses from google - manually it means you face a captcha input form - because you made too many requests for the day.
+
+    google_tts = GoogleTts.with_random_proxy.instantiate({ :output => "out", :lang => :pt })
+    google_tts.save "file2", "Olá, tudo bem com você?"
+    # => "out/file2.mp3" 
+
 
 #Development
 
