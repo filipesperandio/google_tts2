@@ -1,3 +1,5 @@
+NOTE: latest version is 0.1.0
+
 Inspired on another gem - https://github.com/bloomrain/google_tts - this library is a
 complete refactoring to support large texts.
 
