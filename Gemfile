@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rake'
+gem 'nokogiri'
 
 group :development do
   gem 'pry'
@@ -11,6 +11,4 @@ group :development do
   gem 'guard-spork', '~> 1.4'
   gem 'terminal-notifier-guard'
 end
-
-gemspec 
 
