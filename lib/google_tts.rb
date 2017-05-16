@@ -21,10 +21,10 @@ module GoogleTts
     end
 
     def save(name, text)
-      sentences = @parser.sentences text
-      queries = @query_builder.generate_from *sentences
-      contents = @connector.get_contents *queries
-      @mp3writer.save name, *contents
+      sentences = @parser.sentences(text)
+      queries = @query_builder.generate_from(*sentences)
+      contents = @connector.get_contents(*queries)
+      @mp3writer.save(name, *contents)
     end
 
   end
@@ -37,7 +37,7 @@ module GoogleTts
     Client.new(Connector.new(connection), QueryBuilder.new(lang), Mp3Writer.new(output))
   end
 
-  def self.with_random_proxy(params = {})
+  def self.with_random_proxy(_params = {})
     @proxy = ProxyFetcher.random_proxy
     self
   end
