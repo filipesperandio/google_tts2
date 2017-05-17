@@ -22,9 +22,7 @@ module GoogleTts
         next_partial(token) {
           comma_setences = token.split(',').flat_map do |subtoken|
             subtoken = remove_extra_spaces("#{subtoken},")
-            next_partial(subtoken) { 
-              accumulate(subtoken, SPACE)
-            }
+            next_partial(subtoken) { accumulate(subtoken, SPACE) }
           end
           comma_setences[-1] = custom_strip(comma_setences.last, ',')
           comma_setences
