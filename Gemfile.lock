@@ -34,9 +34,9 @@ GEM
       rb-kqueue (>= 0.2)
     lumberjack (1.0.4)
     method_source (0.8.2)
-    mini_portile2 (2.0.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    mini_portile2 (2.1.0)
+    nokogiri (1.7.2)
+      mini_portile2 (~> 2.1.0)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -74,7 +74,7 @@ DEPENDENCIES
   fuubar
   guard-rspec
   guard-spork (~> 1.4)
-  nokogiri (~> 1.6.7.1)
+  nokogiri (~> 1.7.2)
   pry
   rspec
   simplecov
