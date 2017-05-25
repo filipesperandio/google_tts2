@@ -64,5 +64,101 @@ module Main3
   def useless(method)
     puts "bullshit"
   end
+
+  def useless(method)
+    if method
+      if !method
+        if !method
+          if !method
+            if !method
+              if method
+                if !method
+                  if !method
+                    if !method
+                      if !method
+                        puts "bullshit"
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
+  def useless(method)
+    if method
+      if !method
+        if !method
+          if !method
+            if !method
+              if method
+                if !method
+                  if !method
+                    if !method
+                      if !method
+                        puts "bullshit"
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
+  def useless(method)
+    if method
+      if !method
+        if !method
+          if !method
+            if !method
+              if method
+                if !method
+                  if !method
+                    if !method
+                      if !method
+                        puts "bullshit"
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+  
+  def useless(method)
+    if method
+      if !method
+        if !method
+          if !method
+            if !method
+              if method
+                if !method
+                  if !method
+                    if !method
+                      if !method
+                        puts "bullshit"
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
 end
 
