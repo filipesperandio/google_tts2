@@ -5,7 +5,6 @@ module GoogleTts
 
   class ProxyFetcher
     @@SOURCES = [
-      "http://www.xroxy.com/proxyrss.xml", 
       "http://www.freeproxylists.com/rss", 
       "http://www.proxz.com/proxylists.xml"
     ]
