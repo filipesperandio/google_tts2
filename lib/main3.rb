@@ -65,7 +65,7 @@ module Main3
     puts "bullshit"
   end
 
-  def useless(method)
+  def useless_big(method)
     if method
       if !method
         if !method
