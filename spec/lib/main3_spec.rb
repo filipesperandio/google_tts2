@@ -7,9 +7,9 @@ end
 describe Main3 do
 
   it 'does something' do
-    Stub.new.useless('something')
-    Stub.new.useless2
-    Stub.new.useless3
+    Stub.new.useless1('something')
+    Stub.new.useless2('else')
+    Stub.new.useless_big 123
   end
 
 end
