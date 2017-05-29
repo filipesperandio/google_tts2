@@ -1,24 +1,27 @@
 module Main3
   UNUSED_VAR = 123
 
-  def useless(method)
-    puts "bullshit"
-  end
-
-  def useless1
-    puts "bullshit"
-    puts "bullshit"
+  def useless2(method)
     puts "bullshit"
     puts "bullshit"
   end
 
-  def useless2
-    puts "bullshit"
+  def useless_big(method)
+    if method
+      puts "123123"
+    end
   end
 
-  def useless3
-    puts "bullshit"
-    puts "bullshit"
+  def useless1(method)
+    if method
+      if !method
+        if !method
+          puts '231'
+        end
+      end
+    end
   end
+
+  
 end
 

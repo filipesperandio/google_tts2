@@ -2,7 +2,6 @@ require 'google_tts/connector'
 require 'google_tts/query_builder'
 require 'google_tts/parser'
 require 'google_tts/mp3writer'
-require 'google_tts/proxy_fetcher'
 
 module GoogleTts
   VERSION = "0.1.0"
