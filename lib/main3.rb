@@ -8,25 +8,7 @@ module Main3
 
   def useless_big(method)
     if method
-      if !method
-        if !method
-          if !method
-            if !method
-              if method
-                if !method
-                  if !method
-                    if !method
-                      if !method
-                        puts "bullshit"
-                      end
-                    end
-                  end
-                end
-              end
-            end
-          end
-        end
-      end
+      puts "123123"
     end
   end
 
