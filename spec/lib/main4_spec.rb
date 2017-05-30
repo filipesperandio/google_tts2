@@ -2,15 +2,14 @@
 require 'spec_helper'
 
 class Test
-  include Main3
+  include Main4
 end
 
-describe Main3 do
+describe Main4 do
 
   it 'test something' do
     test = Test.new
-    test.useless_big "something"
-    test.useless2 'somthing'
+    test.useless 'somthing'
   end
 
 end
